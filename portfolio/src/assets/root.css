@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap');
+
+:root {
+  /* Colors */
+  --black: #000000;
+  --blue: #0000ff;
+  --grey: #b3b3b3;
+
+  /* Typography */
+  --typeface: "Inter", "Helvetica Neue", Helvetica, sans-serif;
+
+  --weight-light: 300;
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-bold: 700;
+}
