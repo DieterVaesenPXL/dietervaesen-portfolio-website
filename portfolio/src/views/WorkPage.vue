@@ -23,7 +23,7 @@ const projects = [
   {
     id: '02',
     title: 'logo design',
-    subtitle: ['strive', 'line'],
+    subtitle: ['lemur', 'line', 'strive'],
     image: LogoDesignCover2,
     link: null,
   },
