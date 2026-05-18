@@ -16,56 +16,65 @@ const projects = [
   {
     id: '01',
     title: 'book design',
-    subtitle: ['archetypo', 'microtypo', 'non-place'],
+    subtitle: ['archetypo', 'microtypo', 'non-place', 'manifest'],
     image: BookDesignCover1,
+    link: '/work/bookdesign',
   },
   {
     id: '02',
     title: 'logo design',
     subtitle: ['strive', 'line'],
     image: LogoDesignCover2,
+    link: null,
   },
   {
     id: '03',
     title: 'poster design',
     subtitle: ['rebus', 'menucard', 'enzo mari'],
     image: PosterDesignCover3,
+    link: null,
   },
   {
     id: '04',
     title: 'internship',
     subtitle: ['lookbook', 'business cards'],
     image: InternshipCover4,
+    link: null,
   },
   {
     id: '05',
     title: 'photography',
     subtitle: ['athletics', 'airshow', 'motorsport'],
     image: PhotographyCover5,
+    link: null,
   },
   {
     id: '06',
     title: 'webdesign',
     subtitle: ['pokédex', 'take away', 'immohabits'],
     image: WebDesignCover6,
+    link: null,
   },
   {
     id: '07',
     title: 'huis cosemans-knuts',
     subtitle: ['catalog', 'bachelor project', 'master project'],
     image: HuisCosemansKnutsCover7,
+    link: null,
   },
   {
     id: '08',
     title: 'typography',
-    subtitle: ['typegenres', 'horror font'],
+    subtitle: ['typegenres,', 'horror font'],
     image: TypographyCover8,
+    link: null,
   },
   {
     id: '09',
     title: 'virga jesse',
     subtitle: ['poster', 'hommage', 'publication'],
     image: VirgaJesseCover9,
+    link: null,
   },
 ]
 </script>
@@ -87,34 +96,63 @@ const projects = [
     </section>
 
     <section class="project-list">
-      <a
+      <article
         v-for="project in projects"
-        :key="project.number"
+        :key="project.id"
         class="project-row"
-        href="#"
       >
-        <span class="project-number">
-          {{ project.id }}
-        </span>
+    <span class="project-number">
+      {{ project.id }}
+    </span>
 
         <h2>
           {{ project.title }}<span>.</span>
         </h2>
 
         <ul class="project-tags">
-          <li v-for="tag in project.subtitle" :key="tag">
-            {{ tag }}
+          <li
+            v-for="tag in project.subtitle"
+            :key="tag"
+          >
+            <RouterLink
+              v-if="project.title === 'book design'"
+              :to="`/work/bookdesign#${tag}`"
+              class="tag-link"
+            >
+              {{ tag }}
+            </RouterLink>
+
+            <span v-else>
+      {{ tag }}
+    </span>
           </li>
         </ul>
 
-        <figure class="project-image">
-          <img :src="project.image" :alt="project.title" />
+        <RouterLink
+          v-if="project.link"
+          :to="project.link"
+          class="project-image clickable-image"
+        >
+          <img
+            :src="project.image"
+            :alt="project.title"
+          />
+        </RouterLink>
+
+        <figure
+          v-else
+          class="project-image"
+        >
+          <img
+            :src="project.image"
+            :alt="project.title"
+          />
         </figure>
 
         <span class="project-arrow">
-          ↗
-        </span>
-      </a>
+      ↗
+    </span>
+      </article>
     </section>
   </main>
 </template>
@@ -234,26 +272,57 @@ h1 span,
 .project-image img {
   width: 100%;
   height: 100%;
+
   object-fit: contain;
   object-position: center;
-  transition: transform 220ms ease;
+
+  transition:
+    transform .25s ease;
 }
+
+/* Enkel afbeelding klikbaar */
+
+.clickable-image {
+  display: block;
+
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.clickable-image:hover img {
+  transform: scale(1.04);
+}
+
+/* Pijltje */
 
 .project-arrow {
   justify-self: end;
+
   color: var(--black);
+
   font-size: 38px;
   line-height: 1;
-  transition: transform 180ms ease, color 180ms ease;
+
+  transition:
+    transform .25s ease,
+    color .25s ease;
 }
 
-.project-row:hover .project-image img {
-  transform: scale(1.03);
-}
+/* Pijltje reageert enkel wanneer je over afbeelding hovert */
 
-.project-row:hover .project-arrow {
+.clickable-image:hover ~ .project-arrow {
   color: var(--blue);
-  transform: translate(5px, -5px);
+
+  transform: translate(5px,-5px);
+}
+
+.tag-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.tag-link:hover {
+  color: var(--blue);
 }
 
 /* MacBook 13" / compact desktop */
