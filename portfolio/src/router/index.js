@@ -30,7 +30,7 @@ const workPages = [
   {
     path: 'webdesign',
     name: 'webdesign',
-    component: () => import('../views/WebDesignPage.vue'),
+    component: () => import('../views/WebdesignPage.vue'),
   },
   {
     path: 'huiscosemansknuts',
