@@ -13,9 +13,39 @@ const workPages = [
     component: () => import('../views/LogoDesignPage.vue'),
   },
   {
+    path: 'posterdesign',
+    name: 'posterdesign',
+    component: () => import('../views/PosterDesignPage.vue'),
+  },
+  {
+    path: 'internship',
+    name: 'internship',
+    component: () => import('../views/InternshipPage.vue'),
+  },
+  {
     path: 'photography',
     name: 'photography',
     component: () => import('../views/PhotographyPage.vue'),
+  },
+  {
+    path: 'webdesign',
+    name: 'webdesign',
+    component: () => import('../views/WebDesignPage.vue'),
+  },
+  {
+    path: 'huiscosemansknuts',
+    name: 'huiscosemansknuts',
+    component: () => import('../views/HuisCosemansKnutsPage.vue'),
+  },
+  {
+    path: 'typography',
+    name: 'typography',
+    component: () => import('../views/TypographyPage.vue'),
+  },
+  {
+    path: 'virgajesse',
+    name: 'virgajesse',
+    component: () => import('../views/VirgaJessePage.vue'),
   },
 ]
 

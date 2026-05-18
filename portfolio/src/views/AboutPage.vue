@@ -21,10 +21,7 @@ import {
 
         <div class="intro-content">
           <p>
-            I’m a graphic, digital and front-end designer with a strong interest in visual
-            identity, typography and clean interfaces. In 2025 I earned my master’s degree
-            in Graphic Environment Design at PXL-MAD School of Arts, where I focused on
-            thoughtful concepts, strong visuals and functional design.
+            Ik ben een grafisch, digitaal en front-end designer met een sterke interesse in visuele identiteit, typografie en strakke interfaces. In 2025 behaalde ik mijn masterdiploma in de beeldende kunsten aan de PXL-MAD School of Arts, met afstudeerrichting grafische vormgeving. Tijdens mijn opleiding richtte ik me op doordachte concepten, sterke visuele uitwerkingen en functioneel design.
           </p>
 
           <img class="portrait" :src="profilePhoto" alt="Portrait of Dieter Vaesen" />
@@ -33,7 +30,7 @@ import {
         <div class="stats">
           <div>
             <strong>2025</strong>
-            <span>Master Graduate</span>
+            <span>Master Diploma</span>
           </div>
 
           <div>
@@ -43,7 +40,7 @@ import {
 
           <div>
             <strong>∞</strong>
-            <span>Curious Mind</span>
+            <span>Leergierige geest</span>
           </div>
         </div>
       </section>
@@ -53,8 +50,7 @@ import {
           <span class="number">01</span>
           <h2>Graphic<span>.</span></h2>
           <p>
-            I create visual identities, posters, logos and printed matter with a focus on
-            strong concepts and clear communication.
+            Ik ontwerp visuele identiteiten, posters, logo’s en drukwerk, met een focus op sterke concepten en heldere communicatie.
           </p>
         </article>
 
@@ -62,8 +58,8 @@ import {
           <span class="number">02</span>
           <h2>Digital<span>.</span></h2>
           <p>
-            From websites to interactive experiences — I design and build digital solutions
-            that are intuitive and user-centered.
+            Van websites tot interactieve ervaringen — ik ontwerp en bouw digitale oplossingen die intuïtief en gebruiksgericht zijn.
+
           </p>
         </article>
 
@@ -71,8 +67,7 @@ import {
           <span class="number">03</span>
           <h2>Front-end<span>.</span></h2>
           <p>
-            I develop responsive, accessible and performant websites with clean code and
-            attention to detail.
+            Ik ontwikkel responsieve, toegankelijke en performante websites met propere code en oog voor detail.
           </p>
         </article>
       </section>
@@ -81,8 +76,7 @@ import {
         <h2>What drives me<span>.</span></h2>
 
         <p class="drive-text">
-          Athletics plays an important role in my life. I focus on endurance, discipline
-          and constantly pushing my limits — qualities I also bring into my creative work.
+          Actief in atletiek op competitieniveau in de middellange afstand, wat mijn discipline, doorzettingsvermogen en gedrevenheid versterkt — kwaliteiten die ik ook meeneem in mijn creatieve werk.
         </p>
 
         <div class="values-list">
@@ -91,8 +85,8 @@ import {
     <Zap />
   </span>
             <span>
-              <strong>Endurance</strong>
-              <small>Keep going, stay consistent.</small>
+              <strong>Vastberadenheid</strong>
+              <small>Doorzetten en consistent blijven.</small>
             </span>
           </div>
 
@@ -102,7 +96,7 @@ import {
   </span>
             <span>
               <strong>Focus</strong>
-              <small>Block out the noise.</small>
+              <small>'Block out the noise.'</small>
             </span>
           </div>
 
@@ -112,7 +106,7 @@ import {
   </span>
             <span>
               <strong>Discipline</strong>
-              <small>Small steps, big progress.</small>
+              <small>Kleine stappen leiden tot grote vooruitgang.</small>
             </span>
           </div>
         </div>

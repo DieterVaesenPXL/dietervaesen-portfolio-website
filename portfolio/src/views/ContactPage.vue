@@ -19,8 +19,7 @@ import {
         <h1>Let’s<br />connect<span>.</span></h1>
 
         <p>
-          Have a project in mind or just want to say hi?
-          Feel free to get in touch.
+          Heb je een project in gedachten of wil je gewoon even hallo zeggen? Neem gerust contact op.
         </p>
 
         <div class="contact-list">
@@ -41,7 +40,7 @@ import {
             </span>
 
             <span>
-              <small>Phone</small>
+              <small>Telefoonnummer</small>
               <strong>+32 474 68 80 38</strong>
             </span>
           </a>
@@ -52,7 +51,7 @@ import {
             </span>
 
             <span>
-              <small>Based in</small>
+              <small>Vestiging</small>
               <strong>Belgium</strong>
             </span>
           </div>
@@ -94,12 +93,12 @@ import {
         <a class="availability-card" href="mailto:vaesendieter@icloud.com">
           <span class="card-arrow">↗</span>
 
-          <small>Available for</small>
+          <small>beschikbaar voor</small>
 
           <strong>
-            collaborations<br />
-            and freelance<br />
-            projects<span>.</span>
+            Samenwerkingen<br />
+            en 'freelance'<br />
+            projecten<span>.</span>
           </strong>
         </a>
       </aside>
