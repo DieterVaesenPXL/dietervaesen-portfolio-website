@@ -3,7 +3,7 @@ import NavigationBar from '@/components/NavigationBar.vue'
 
 import BookDesignCover1 from '@/assets/work/book design/archetypo/Archetypo_Cover.jpg'
 import LogoDesignCover2 from '@/assets/work/logo design/strive/strive_logo_energybar.jpg'
-import PosterDesignCover3 from '@/assets/work/posterdesign/Poster_Piamio Sanatorium.jpg'
+import PosterDesignCover3 from '@/assets/work/posterdesign/piamio sanatorium/Poster_Piamio Sanatorium.jpg'
 import InternshipCover4 from '@/assets/work/internship/business cards/business-cards_2.jpg'
 import PhotographyCover5 from '@/assets/other/Profielfoto.jpg'
 import WebDesignCover6 from '@/assets/work/webdesign/pokedex-iphone.jpg'
@@ -19,62 +19,117 @@ const projects = [
     subtitle: ['archetypo', 'microtypo', 'non-place', 'manifest'],
     image: BookDesignCover1,
     link: '/work/bookdesign',
+
+    tagLinks: {
+      archetypo: '/work/bookdesign#archetypo',
+      microtypo: '/work/bookdesign#microtypo',
+      'non-place': '/work/bookdesign#non-place',
+      manifest: '/work/bookdesign#manifest',
+    },
   },
   {
     id: '02',
     title: 'logo design',
     subtitle: ['lemur', 'line', 'strive'],
     image: LogoDesignCover2,
-    link: null,
+    link: '/work/logodesign',
+
+    tagLinks: {
+      lemur: '/work/logodesign#lemur',
+      line: '/work/logodesign#line',
+      strive: '/work/logodesign#strive',
+    },
   },
   {
     id: '03',
     title: 'poster design',
-    subtitle: ['rebus', 'menucard', 'enzo mari'],
+    subtitle: ['rebus', 'menucard', 'enzo mari', 'paimio sanatorium'],
     image: PosterDesignCover3,
-    link: null,
+    link: '/work/posterdesign',
+
+    tagLinks: {
+      rebus: '/work/posterdesign#rebus',
+      menucard: '/work/posterdesign#menucard',
+      'enzo mari': '/work/posterdesign#enzo-mari',
+      'paimio sanatorium': '/work/posterdesign#paimio-sanatorium',
+    },
   },
+
   {
     id: '04',
     title: 'internship',
     subtitle: ['lookbook', 'business cards'],
     image: InternshipCover4,
-    link: null,
+    link: '/work/internship',
+
+    tagLinks: {
+      lookbook: '/work/internship#lookbook',
+      'business cards': '/work/internship#business-card',
+    },
   },
   {
     id: '05',
     title: 'photography',
     subtitle: ['athletics', 'airshow', 'motorsport'],
     image: PhotographyCover5,
-    link: null,
+    link: '/work/photography',
+
+    tagLinks: {
+      athletics: '/work/photography#athletics',
+      airshow: '/work/photography#airshow',
+      motorsport: '/work/photography#motorsport',
+    },
   },
   {
     id: '06',
     title: 'webdesign',
     subtitle: ['pokédex', 'take away', 'immohabits'],
     image: WebDesignCover6,
-    link: null,
+    link: '/work/webdesign',
+
+    tagLinks: {
+      'pokédex': '/work/webdesign#pokedex',
+      'take away': '/work/webdesign#take-away',
+      immohabits: '/work/webdesign#immohabits',
+    },
   },
   {
     id: '07',
     title: 'huis cosemans-knuts',
     subtitle: ['catalog', 'bachelor project', 'master project'],
     image: HuisCosemansKnutsCover7,
-    link: null,
+    link: '/work/huiscosemansknuts',
+
+    tagLinks: {
+      catalog: '/work/huiscosemansknuts#catalog',
+      'bachelor project': '/work/huiscosemansknuts#bachelor-project',
+      'master project': '/work/huiscosemansknuts#master-project',
+    },
   },
   {
     id: '08',
     title: 'typography',
-    subtitle: ['typegenres,', 'horror font'],
+    subtitle: ['typegenres, horror font'],
     image: TypographyCover8,
-    link: null,
+    link: '/work/typography',
+
+    tagLinks: {
+      'typegenres, horror font':
+        '/work/typography#typegenres-horror-font',
+    },
   },
   {
     id: '09',
     title: 'virga jesse',
-    subtitle: ['poster', 'hommage', 'publication'],
+    subtitle: ['publicatie', 'hommage', 'poster'],
     image: VirgaJesseCover9,
-    link: null,
+    link: '/work/virgajesse',
+
+    tagLinks: {
+      poster: '/work/virgajesse#poster',
+      hommage: '/work/virgajesse#hommage',
+      publicatie: '/work/virgajesse#publicatie',
+    },
   },
 ]
 </script>
@@ -90,8 +145,8 @@ const projects = [
       </div>
 
       <p class="intro-text">
-        A selection of projects I’ve worked on — from concept to execution.
-        Each project reflects a unique challenge and creative approach.
+        Een selectie van projecten waaraan ik heb gewerkt — van concept tot uitvoering.
+        Elk project weerspiegelt een unieke uitdaging en een creatieve aanpak.
       </p>
     </section>
 
@@ -115,16 +170,16 @@ const projects = [
             :key="tag"
           >
             <RouterLink
-              v-if="project.title === 'book design'"
-              :to="`/work/bookdesign#${tag}`"
+              v-if="project.tagLinks?.[tag]"
+              :to="project.tagLinks[tag]"
               class="tag-link"
             >
               {{ tag }}
             </RouterLink>
 
             <span v-else>
-      {{ tag }}
-    </span>
+    {{ tag }}
+  </span>
           </li>
         </ul>
 

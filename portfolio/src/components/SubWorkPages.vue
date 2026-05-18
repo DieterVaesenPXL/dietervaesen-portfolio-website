@@ -123,7 +123,7 @@ onBeforeUnmount(() => {
     <section :class="listClass">
       <article
         v-for="(item, itemIndex) in items"
-        :id="item.title"
+        :id="item.slug || item.title.toLowerCase().replace(/\s+/g, '-')"
         :key="item.number"
         :class="sectionClass"
       >
@@ -380,7 +380,7 @@ h2 {
   right: 40px;
   border: none;
   background: none;
-  color: var(--blue);
+  color: var(--black);
   font-size: 60px;
   font-weight: 700;
   cursor: pointer;
