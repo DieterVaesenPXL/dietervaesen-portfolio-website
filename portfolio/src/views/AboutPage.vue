@@ -320,7 +320,6 @@ h1 span,
   font-weight:var(--weight-bold);
 }
 
-
 /* ---------- MacBook 13" fix ---------- */
 
 @media (min-width: 1200px) and (max-width: 1500px) {
