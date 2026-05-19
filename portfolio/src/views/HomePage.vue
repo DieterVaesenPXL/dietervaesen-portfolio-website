@@ -36,7 +36,7 @@ const words = [
               target="_blank"
               rel="noopener noreferrer"
             >
-              curriculum vitae
+              curriculum vitae ↗
             </a>
           </strong>
         </p>
