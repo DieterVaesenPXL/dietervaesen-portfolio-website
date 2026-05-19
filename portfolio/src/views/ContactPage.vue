@@ -51,8 +51,8 @@ import {
             </span>
 
             <span>
-              <small>Vestiging</small>
-              <strong>Belgium</strong>
+              <small>Gevestigd in</small>
+              <strong>België</strong>
             </span>
           </div>
         </div>
