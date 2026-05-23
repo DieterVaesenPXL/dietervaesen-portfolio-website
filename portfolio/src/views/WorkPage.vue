@@ -4,7 +4,7 @@ import LogoDesignCover2 from '@/assets/work/logo design/strive/strive_logo_energ
 import PosterDesignCover3 from '@/assets/work/posterdesign/piamio sanatorium/Poster_Piamio Sanatorium.jpg'
 import InternshipCover4 from '@/assets/work/internship/business cards/business-cards_2.jpg'
 import PhotographyCover5 from '@/assets/other/Profielfoto.jpg'
-import WebDesignCover6 from '@/assets/work/webdesign/pokedex-iphone.jpg'
+import WebDesignCover6 from '@/assets/work/webdesign/pokedex/pokedex-iphone_1.jpg'
 import HuisCosemansKnutsCover7 from '@/assets/work/huis cosemans-knuts/bachelor project/book/HCK_BA-Project_cover.jpg'
 import TypographyCover8 from '@/assets/work/typography/typo_1.jpg'
 import VirgaJesseCover9 from '@/assets/work/virga jesse/publicatie/virga-jesse_publicatie_spread_cover_open.jpg'
@@ -81,13 +81,14 @@ const projects = [
   {
     id: '06',
     title: 'webdesign',
-    subtitle: ['pokédex', 'take away', 'immohabits'],
+    subtitle: ['pokédex', 'take away', 'dashboard', 'immohabits'],
     image: WebDesignCover6,
     link: '/work/webdesign',
 
     tagLinks: {
       'pokédex': '/work/webdesign#pokedex',
       'take away': '/work/webdesign#take-away',
+      dashboard: '/work/webdesign#dashboard',
       immohabits: '/work/webdesign#immohabits',
     },
   },
@@ -134,7 +135,6 @@ const projects = [
 
 <template>
   <main class="work-page">
-
     <section class="work-hero">
       <div>
         <p class="eyebrow">Selected</p>
