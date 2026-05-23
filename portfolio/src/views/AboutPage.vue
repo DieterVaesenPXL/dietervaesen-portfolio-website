@@ -1,5 +1,4 @@
 <script setup>
-import NavigationBar from '@/components/NavigationBar.vue'
 import profilePhoto from '@/assets/other/Profielfoto.jpg'
 
 import {
@@ -11,7 +10,6 @@ import {
 
 <template>
   <main class="about-page">
-    <NavigationBar />
 
     <section class="about-layout">
       <section class="intro-panel">
@@ -123,7 +121,6 @@ import {
 <style scoped>
 .about-page {
   min-height: 100dvh;
-  padding: clamp(24px, 4vw, 56px) clamp(22px, 7vw, 128px);
   color: var(--black);
   background: #fff;
   font-family: var(--typeface);
@@ -320,13 +317,22 @@ h1 span,
   font-weight:var(--weight-bold);
 }
 
+.cta-card {
+  transition: transform .25s ease;
+}
+
+.card-arrow {
+  transition: transform .2s ease, color .2s ease;
+}
+
+.cta-card:hover .card-arrow {
+  color: var(--blue);
+  transform: translate(5px, -5px);
+}
+
 /* ---------- MacBook 13" fix ---------- */
 
 @media (min-width: 1200px) and (max-width: 1500px) {
-  .about-page {
-    padding: 34px 76px;
-  }
-
   .about-layout {
     grid-template-columns: 1.45fr 0.9fr 0.74fr;
     gap: 42px;
@@ -488,11 +494,6 @@ h1 span,
 }
 
 @media(max-width:560px){
-
-  .about-page{
-    padding:22px;
-  }
-
   h1{
     font-size:68px;
   }

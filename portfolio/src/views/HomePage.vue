@@ -1,6 +1,4 @@
 <script setup>
-import NavigationBar from '@/components/NavigationBar.vue'
-
 const words = [
   { text: 'does', color: 'black', position: 'does' },
   { text: 'this', color: 'black', position: 'this' },
@@ -12,7 +10,6 @@ const words = [
 
 <template>
   <main class="home">
-    <NavigationBar />
 
     <section class="hero">
       <h2
@@ -48,8 +45,7 @@ const words = [
 <style scoped>
 .home {
   width: 100%;
-  min-height: 100dvh;
-  padding: clamp(24px, 4vw, 56px) clamp(22px, 7vw, 128px);
+  min-height: 0;
   overflow: hidden;
   color: var(--black);
   background: #fff;
@@ -57,7 +53,7 @@ const words = [
 }
 
 .hero {
-  height: calc(100dvh - 104px);
+  min-height: calc(100dvh - 110px);
 
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -91,6 +87,8 @@ const words = [
 .this {
   grid-column: 6 / 9;
   grid-row: 2 / 4;
+
+  transform: translateX(50px);
 }
 
 .look {
@@ -98,6 +96,8 @@ const words = [
   grid-row: 3 / 5;
   align-self: start;
   margin-top: 2rem;
+
+  transform: translateX(50px);
 }
 
 .designed {
@@ -110,6 +110,8 @@ const words = [
 .enough {
   grid-column: 6 / 13;
   grid-row: 7 / 9;
+
+  transform: translateX(50px);
 }
 
 .intro {
@@ -163,10 +165,6 @@ const words = [
 }
 
 @media (min-width: 1200px) and (max-width: 1500px) {
-  .home {
-    padding: 34px 76px;
-  }
-
   .hero {
     height: calc(100dvh - 92px);
     padding-top: 44px;
@@ -201,12 +199,6 @@ const words = [
   .intro {
     margin-top: 48px;
     font-size: 1rem;
-  }
-}
-
-@media (max-width: 560px) {
-  .home {
-    padding: 22px;
   }
 }
 </style>
