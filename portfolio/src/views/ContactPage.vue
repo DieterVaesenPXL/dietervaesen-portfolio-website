@@ -1,6 +1,4 @@
 <script setup>
-import NavigationBar from '@/components/NavigationBar.vue'
-
 import {
   Mail,
   Phone,
@@ -12,7 +10,6 @@ import {
 
 <template>
   <main class="contact-page">
-    <NavigationBar />
 
     <section class="contact-layout">
       <div class="intro">
@@ -109,7 +106,6 @@ import {
 <style scoped>
 .contact-page {
   min-height: 100dvh;
-  padding: clamp(24px, 4vw, 56px) clamp(22px, 7vw, 128px);
   color: var(--black);
   background: #fff;
   font-family: var(--typeface);
@@ -296,9 +292,6 @@ small,
 /* ---------- MacBook 13" / compact desktop ---------- */
 
 @media (min-width: 1200px) and (max-width: 1500px) {
-  .contact-page {
-    padding: 34px 76px;
-  }
 
   .contact-layout {
     grid-template-columns: minmax(0, 1fr) 1px minmax(0, 0.9fr);
@@ -421,10 +414,6 @@ small,
 }
 
 @media (max-width: 560px) {
-  .contact-page {
-    padding: 22px;
-  }
-
   h1 {
     font-size: 74px;
   }

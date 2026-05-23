@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomePage from '../views/HomePage.vue'
+import DefaultLayout from '@/layouts/DefaultLayout.vue'
 
 const workPages = [
   {
@@ -67,38 +67,45 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: HomePage,
-    },
+      component: DefaultLayout,
 
-    {
-      path: '/work',
-      name: 'work',
-      component: () => import('../views/WorkPage.vue'),
-    },
+      children: [
+        {
+          path: '',
+          name: 'home',
+          component: () => import('../views/HomePage.vue'),
+        },
 
-    ...workPages.map(project => ({
-      path: `/work/${project.path}`,
-      name: project.name,
-      component: project.component,
-    })),
+        {
+          path: 'work',
+          name: 'work',
+          component: () => import('../views/WorkPage.vue'),
+        },
 
-    {
-      path: '/about',
-      name: 'about',
-      component: () => import('../views/AboutPage.vue'),
-    },
+        ...workPages.map(project => ({
+          path: `work/${project.path}`,
+          name: project.name,
+          component: project.component,
+        })),
 
-    {
-      path: '/contact',
-      name: 'contact',
-      component: () => import('../views/ContactPage.vue'),
-    },
+        {
+          path: 'about',
+          name: 'about',
+          component: () => import('../views/AboutPage.vue'),
+        },
 
-    {
-      path: '/cv',
-      name: 'cv',
-      component: () => import('../views/CurriculumVitae.vue'),
+        {
+          path: 'contact',
+          name: 'contact',
+          component: () => import('../views/ContactPage.vue'),
+        },
+
+        {
+          path: 'cv',
+          name: 'cv',
+          component: () => import('../views/CurriculumVitae.vue'),
+        },
+      ],
     },
   ],
 })

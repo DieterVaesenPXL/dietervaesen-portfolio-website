@@ -1,6 +1,4 @@
 <script setup>
-import NavigationBar from '@/components/NavigationBar.vue'
-
 import BookDesignCover1 from '@/assets/work/book design/archetypo/Archetypo_Cover.jpg'
 import LogoDesignCover2 from '@/assets/work/logo design/strive/strive_logo_energybar.jpg'
 import PosterDesignCover3 from '@/assets/work/posterdesign/piamio sanatorium/Poster_Piamio Sanatorium.jpg'
@@ -136,7 +134,6 @@ const projects = [
 
 <template>
   <main class="work-page">
-    <NavigationBar />
 
     <section class="work-hero">
       <div>
@@ -215,7 +212,6 @@ const projects = [
 <style scoped>
 .work-page {
   min-height: 100dvh;
-  padding: clamp(24px, 4vw, 56px) clamp(22px, 7vw, 128px);
   color: var(--black);
   background: #fff;
   font-family: var(--typeface);
@@ -382,10 +378,6 @@ h1 span,
 
 /* MacBook 13" / compact desktop */
 @media (min-width: 1200px) and (max-width: 1500px) {
-  .work-page {
-    padding: 34px 76px;
-  }
-
   .work-hero {
     padding: 42px 0 46px;
   }
@@ -489,10 +481,6 @@ h1 span,
 }
 
 @media (max-width: 560px) {
-  .work-page {
-    padding: 22px;
-  }
-
   h1 {
     font-size: 78px;
   }

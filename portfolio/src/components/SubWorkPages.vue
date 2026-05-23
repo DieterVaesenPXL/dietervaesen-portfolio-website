@@ -1,6 +1,5 @@
 <script setup>
 import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
-import NavigationBar from '@/components/NavigationBar.vue'
 
 const props = defineProps({
   pageClass: {
@@ -102,7 +101,6 @@ onBeforeUnmount(() => {
 
 <template>
   <main :class="pageClass">
-    <NavigationBar />
 
     <section class="hero">
       <div class="hero-left">
@@ -203,7 +201,6 @@ onBeforeUnmount(() => {
 <style scoped>
 .book-page {
   min-height: 100dvh;
-  padding: clamp(24px, 4vw, 56px) clamp(22px, 7vw, 128px);
   color: var(--black);
   background: #fff;
   font-family: var(--typeface);
@@ -423,10 +420,6 @@ h2 {
 }
 
 @media (min-width:1200px) and (max-width:1500px) {
-  .book-page {
-    padding: 34px 76px;
-  }
-
   .hero {
     padding: 52px 0 48px;
   }
@@ -491,9 +484,6 @@ h2 {
 }
 
 @media(max-width:560px) {
-  .book-page {
-    padding: 22px;
-  }
 
   .back-button {
     font-size: 52px;
