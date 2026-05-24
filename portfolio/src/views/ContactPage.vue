@@ -404,12 +404,16 @@ small,
 
   .contact-list {
     max-width: none;
-    margin-bottom: 64px;
+    margin-bottom: 32px;
   }
 
   .side {
-    padding-top: 42px;
-    border-top: 1px solid var(--grey);
+    padding-top: 0;
+    border-top: 0;
+  }
+
+  .eyebrow {
+    margin: 0 0 20px;
   }
 }
 
@@ -420,6 +424,7 @@ small,
 
   .contact-item,
   .social-item {
+    padding: 18px 0;
     grid-template-columns: 48px minmax(0, 1fr) auto;
     gap: 16px;
   }
@@ -438,6 +443,15 @@ small,
   .social-icon :deep(svg) {
     width: 23px;
     height: 23px;
+  }
+
+  .contact-list .contact-item:last-child {
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--grey);
+  }
+
+  .social-list {
+    margin-bottom: 42px;
   }
 
   .availability-card {

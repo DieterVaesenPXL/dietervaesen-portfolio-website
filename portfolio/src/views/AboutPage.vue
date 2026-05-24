@@ -494,24 +494,22 @@ h1 span,
 }
 
 @media(max-width:560px){
-  h1{
-    font-size:68px;
-  }
 
   .stats{
     grid-template-columns:1fr;
+    margin-top:34px;
+    border-top:1px solid var(--grey);
   }
 
   .stats div{
-    padding:0 0 22px;
-
+    padding:22px 0;
     border-right:0;
     border-bottom:1px solid var(--grey);
   }
 
   .stats div:last-child{
     border-bottom:0;
+    padding-bottom:8px;
   }
-
 }
 </style>
