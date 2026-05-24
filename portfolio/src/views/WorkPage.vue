@@ -81,15 +81,15 @@ const projects = [
   {
     id: '06',
     title: 'webdesign',
-    subtitle: ['pokédex', 'take away', 'dashboard', 'immohabits'],
+    subtitle: ['pokédex', 'immohabits', 'take away', 'dashboard'],
     image: WebDesignCover6,
     link: '/work/webdesign',
 
     tagLinks: {
       'pokédex': '/work/webdesign#pokedex',
+      immohabits: '/work/webdesign#immohabits',
       'take away': '/work/webdesign#take-away',
       dashboard: '/work/webdesign#dashboard',
-      immohabits: '/work/webdesign#immohabits',
     },
   },
   {
