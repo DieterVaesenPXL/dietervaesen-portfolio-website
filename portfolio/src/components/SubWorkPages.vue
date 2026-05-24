@@ -52,6 +52,12 @@ function openFullscreen(itemIndex, imageIndex) {
   document.body.style.overflow = 'hidden'
 }
 
+function handleImageClick(itemIndex, imageIndex) {
+  if (window.innerWidth <= 900) return
+
+  openFullscreen(itemIndex, imageIndex)
+}
+
 function closeFullscreen() {
   activeItemIndex.value = null
   activeImageIndex.value = 0
@@ -150,7 +156,7 @@ onBeforeUnmount(() => {
             v-for="(image, imageIndex) in item.images"
             :key="image"
             class="image-card"
-            @click="openFullscreen(itemIndex, imageIndex)"
+            @click="handleImageClick(itemIndex, imageIndex)"
           >
             <img :src="image" :alt="item.title" />
           </figure>
@@ -475,16 +481,46 @@ h2 {
   }
 
   .book-gallery {
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
+    overflow-x: auto;
+
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+
+    gap: 0;
+    padding: 0;
+    margin: 0;
+
+    scrollbar-width: none;
+  }
+
+  .book-gallery::-webkit-scrollbar {
+    display: none;
   }
 
   .image-card {
-    min-height: 180px;
+    flex: 0 0 100%;
+    min-width: 100%;
+
+    min-height: 260px;
+    height: 62vw;
+
+    margin: 0;
+    background: transparent;
+
+    scroll-snap-align: center;
+  }
+
+  .image-card img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
   }
 }
 
 @media(max-width:560px) {
-
   .back-button {
     font-size: 52px;
   }
@@ -497,8 +533,9 @@ h2 {
     font-size: 66px;
   }
 
-  .book-gallery {
-    grid-template-columns: 1fr;
+  .image-card {
+    height: 68vw;
+    min-height: 230px;
   }
 
   .page-copyright {

@@ -153,13 +153,19 @@ const projects = [
         :key="project.id"
         class="project-row"
       >
-    <span class="project-number">
-      {{ project.id }}
-    </span>
+        <span class="project-number">
+          {{ project.id }}
+        </span>
 
-        <h2>
-          {{ project.title }}<span>.</span>
-        </h2>
+        <div class="title-row">
+          <h2>
+            {{ project.title }}<span>.</span>
+          </h2>
+
+          <span class="project-arrow mobile-arrow">
+            ↗
+          </span>
+        </div>
 
         <ul class="project-tags">
           <li
@@ -175,8 +181,8 @@ const projects = [
             </RouterLink>
 
             <span v-else>
-    {{ tag }}
-  </span>
+              {{ tag }}
+            </span>
           </li>
         </ul>
 
@@ -201,9 +207,9 @@ const projects = [
           />
         </figure>
 
-        <span class="project-arrow">
-      ↗
-    </span>
+        <span class="project-arrow desktop-arrow">
+          ↗
+        </span>
       </article>
     </section>
   </main>
@@ -269,16 +275,23 @@ h1 span,
   min-height: 230px;
   padding: 28px 0;
 
-  color: inherit;
-  text-decoration: none;
   border-bottom: 1px solid var(--grey);
 }
 
 .project-number {
+  grid-column: 1;
   align-self: start;
   padding-top: 24px;
   font-size: 15px;
   font-weight: var(--weight-bold);
+}
+
+.title-row {
+  display: contents;
+}
+
+.title-row h2 {
+  grid-column: 2;
 }
 
 .project-row h2 {
@@ -290,6 +303,7 @@ h1 span,
 }
 
 .project-tags {
+  grid-column: 3;
   min-height: 96px;
   padding-left: clamp(24px, 3vw, 44px);
   border-left: 1px solid var(--grey);
@@ -307,6 +321,7 @@ h1 span,
 }
 
 .project-image {
+  grid-column: 4;
   justify-self: end;
   width: 360px;
   height: 180px;
@@ -327,15 +342,11 @@ h1 span,
   object-fit: contain;
   object-position: center;
 
-  transition:
-    transform .25s ease;
+  transition: transform .25s ease;
 }
-
-/* Enkel afbeelding klikbaar */
 
 .clickable-image {
   display: block;
-
   overflow: hidden;
   cursor: pointer;
 }
@@ -344,13 +355,8 @@ h1 span,
   transform: scale(1.04);
 }
 
-/* Pijltje */
-
 .project-arrow {
-  justify-self: end;
-
   color: var(--black);
-
   font-size: 38px;
   line-height: 1;
 
@@ -359,12 +365,19 @@ h1 span,
     color .25s ease;
 }
 
-/* Pijltje reageert enkel wanneer je over afbeelding hovert */
+.desktop-arrow {
+  grid-column: 5;
+  justify-self: end;
+  display: block;
+}
 
-.clickable-image:hover ~ .project-arrow {
+.mobile-arrow {
+  display: none;
+}
+
+.project-row:has(.clickable-image:hover) .project-arrow {
   color: var(--blue);
-
-  transform: translate(5px,-5px);
+  transform: translate(5px, -5px);
 }
 
 .tag-link {
@@ -377,6 +390,7 @@ h1 span,
 }
 
 /* MacBook 13" / compact desktop */
+
 @media (min-width: 1200px) and (max-width: 1500px) {
   .work-hero {
     padding: 42px 0 46px;
@@ -433,6 +447,8 @@ h1 span,
   }
 }
 
+/* Tablet / mobile */
+
 @media (max-width: 900px) {
   .work-hero {
     display: block;
@@ -443,50 +459,70 @@ h1 span,
   }
 
   .project-row {
-    grid-template-columns: 44px minmax(0, 1fr) 36px;
-    gap: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 12px;
     min-height: 0;
     padding: 34px 0;
   }
 
   .project-number {
-    grid-column: 1;
+    padding-top: 0;
+    margin-bottom: -6px;
+  }
+
+  .title-row {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .title-row h2 {
+    margin: 0;
   }
 
   .project-row h2 {
-    grid-column: 2;
+    max-width: none;
+    font-size: clamp(34px, 7vw, 48px);
+  }
+
+  .mobile-arrow {
+    display: block;
+    flex-shrink: 0;
+    font-size: 34px;
+  }
+
+  .desktop-arrow {
+    display: none;
   }
 
   .project-tags {
-    grid-column: 2;
     min-height: 0;
-    margin-top: 14px;
+    margin-top: 8px;
+
     padding-left: 0;
     border-left: 0;
+
     display: block;
   }
 
   .project-image {
-    grid-column: 2 / -1;
-    justify-self: stretch;
     width: 100%;
     height: 240px;
-    margin-top: 22px;
-  }
-
-  .project-arrow {
-    grid-column: 3;
-    grid-row: 1;
+    margin-top: 18px;
   }
 }
+
+/* Small mobile */
 
 @media (max-width: 560px) {
   h1 {
     font-size: 78px;
-  }
-
-  .project-row {
-    grid-template-columns: 38px minmax(0, 1fr) 28px;
   }
 
   .project-row h2 {
