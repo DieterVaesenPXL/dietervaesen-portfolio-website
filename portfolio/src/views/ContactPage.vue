@@ -94,7 +94,7 @@ import {
 
           <strong>
             Samenwerkingen<br />
-            en 'freelance'<br />
+            en freelance<br />
             projecten<span>.</span>
           </strong>
         </a>
@@ -262,9 +262,8 @@ small,
   padding: clamp(36px, 5vw, 62px);
   color: inherit;
   text-decoration: none;
-  background: #f7f7f7;
+  background: #f5f5f5;
   border-radius: 28px;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.04);
 }
 
 .card-arrow {
@@ -455,7 +454,24 @@ small,
   }
 
   .availability-card {
-    padding: 32px;
+    padding: 18px 28px 28px;
+    padding-top: 35px;
+  }
+
+  .card-arrow {
+    top: 18px;
+    right: 20px;
+    font-size: 40px;
+  }
+
+  .availability-card strong {
+    margin-top: 30px;
+  }
+
+  .card-arrow {
+    top: 18px;
+    right: 22px;
+    font-size: 50px;
   }
 }
 </style>

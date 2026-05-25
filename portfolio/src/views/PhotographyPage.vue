@@ -63,6 +63,8 @@ const photographyItems = [
   <SubWorkPages
     project-number="05"
     project-title="photography"
+    mobile-project-title="photo -
+graphy"
     :items="photographyItems"
   />
 </template>

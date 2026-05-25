@@ -3,7 +3,7 @@ import BookDesignCover1 from '@/assets/work/book design/archetypo/Archetypo_Cove
 import LogoDesignCover2 from '@/assets/work/logo design/strive/strive_logo_energybar.jpg'
 import PosterDesignCover3 from '@/assets/work/posterdesign/piamio sanatorium/Poster_Piamio Sanatorium.jpg'
 import InternshipCover4 from '@/assets/work/internship/business cards/business-cards_2.jpg'
-import PhotographyCover5 from '@/assets/other/Profielfoto.jpg'
+import PhotographyCover5 from '@/assets/work/photography/athletics/athletics_5.jpg'
 import WebDesignCover6 from '@/assets/work/webdesign/pokedex/pokedex-iphone_1.jpg'
 import HuisCosemansKnutsCover7 from '@/assets/work/huis cosemans-knuts/bachelor project/book/HCK_BA-Project_cover.jpg'
 import TypographyCover8 from '@/assets/work/typography/typo_1.jpg'
@@ -448,7 +448,6 @@ h1 span,
 }
 
 /* Tablet / mobile */
-
 @media (max-width: 900px) {
   .work-hero {
     display: block;
@@ -513,13 +512,24 @@ h1 span,
 
   .project-image {
     width: 100%;
-    height: 240px;
+    height: 78vw;
+    min-height: 300px;
+    max-height: 520px;
     margin-top: 18px;
+    border-radius: 0;
+    background: transparent;
+    overflow: hidden;
+  }
+
+  .project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
   }
 }
 
 /* Small mobile */
-
 @media (max-width: 560px) {
   h1 {
     font-size: 78px;

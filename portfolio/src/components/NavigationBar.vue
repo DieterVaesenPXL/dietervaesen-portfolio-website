@@ -1,12 +1,57 @@
+<script setup>
+import { computed } from 'vue'
+import { RouterLink, useRoute } from 'vue-router'
+
+const route = useRoute()
+
+const isWorkRoute = computed(() => {
+  return [
+    '/work',
+    '/bookdesign',
+    '/logodesign',
+    '/posterdesign',
+    '/internship',
+    '/photography',
+    '/webdesign',
+    '/huiscosemansknuts',
+    '/typography',
+    '/virgajesse',
+  ].some(path => route.path.startsWith(path))
+})
+</script>
+
 <template>
   <header class="nav">
     <RouterLink class="brand" to="/">Dieter Vaesen</RouterLink>
 
     <nav aria-label="Main navigation">
-      <RouterLink to="/" exact-active-class="active">home</RouterLink>
-      <RouterLink to="/work" exact-active-class="active">work</RouterLink>
-      <RouterLink to="/about" exact-active-class="active">about</RouterLink>
-      <RouterLink to="/contact" exact-active-class="active">contact</RouterLink>
+      <RouterLink
+        to="/"
+        exact-active-class="active"
+      >
+        home
+      </RouterLink>
+
+      <RouterLink
+        to="/work"
+        :class="{ active: isWorkRoute }"
+      >
+        work
+      </RouterLink>
+
+      <RouterLink
+        to="/about"
+        exact-active-class="active"
+      >
+        about
+      </RouterLink>
+
+      <RouterLink
+        to="/contact"
+        exact-active-class="active"
+      >
+        contact
+      </RouterLink>
     </nav>
   </header>
 </template>
@@ -47,7 +92,6 @@
   transition: color 180ms ease;
 }
 
-/* actieve pagina alleen zwart maken */
 .nav nav a:hover,
 .nav nav a.active {
   color: var(--black);
