@@ -23,7 +23,7 @@ const words = [
 
       <div class="intro">
         <p>© dieter vaesen <strong>portfolio</strong>,</p>
-        <p>graphic design / webdeveloper</p>
+        <p>graphic design / front-end developer</p>
         <p>Master’s degree, 2025</p>
 
         <p class="cv">

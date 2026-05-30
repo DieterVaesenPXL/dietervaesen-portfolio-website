@@ -105,6 +105,11 @@ const router = createRouter({
           name: 'cv',
           component: () => import('../views/CurriculumVitae.vue'),
         },
+        {
+          path: 'eindreflectie',
+          name: 'eindreflectie',
+          component: () => import('../views/ReflectionPage.vue'),
+        },
       ],
     },
   ],
