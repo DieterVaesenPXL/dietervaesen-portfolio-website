@@ -18,6 +18,7 @@ import immohabits2 from '@/assets/work/webdesign/immohabits/immohabits_2.jpg'
 import immohabits3 from '@/assets/work/webdesign/immohabits/immohabits_3.jpg'
 import immohabits4 from '@/assets/work/webdesign/immohabits/immohabits_4.jpg'
 import immohabits5 from '@/assets/work/webdesign/immohabits/immohabits_5.jpg'
+import immohabits6 from '@/assets/work/webdesign/immohabits/immohabits_6.jpg'
 
 const webdesignItems = [
   {
@@ -38,7 +39,7 @@ const webdesignItems = [
       "Binnen het team had iedere discipline een eigen rol. Studenten uit de richting Design waren verantwoordelijk voor de visuele identiteit en het ontwerp, terwijl programmeerstudenten instonden voor de backend. Samen met een medestudent Web Development nam ik de front-end ontwikkeling voor mijn rekening. Hierbij vertaalden we het ontwerp naar een functionele en responsieve website.",
       "Dit project gaf me de kans om ervaring op te doen in een realistische werkomgeving, waarbij samenwerking en communicatie centraal stonden. Daarnaast heb ik geleerd om als één team naar een gemeenschappelijk doel toe te werken en elkaar te ondersteunen waar nodig. Tijdens het project kreeg ik ook de rol van Scrum Master, waardoor ik ervaring opdeed in het begeleiden van het team, het bewaken van de voortgang en het organiseren van een efficiënte samenwerking.",
     ],
-    images: [immohabits2, immohabits3, immohabits4, immohabits5],
+    images: [immohabits2, immohabits3, immohabits4, immohabits5, immohabits6],
     link: null,
   },
   {

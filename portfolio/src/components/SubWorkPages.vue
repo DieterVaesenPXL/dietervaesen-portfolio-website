@@ -34,6 +34,10 @@ const props = defineProps({
     type: Array,
     required: true,
   },
+  mobileProjectTitle: {
+    type: String,
+    default: null,
+  },
 })
 
 const activeItemIndex = ref(null)
@@ -118,9 +122,19 @@ onBeforeUnmount(() => {
       <div class="hero-title">
         <span class="project-number">{{ projectNumber }}</span>
 
-        <h1>
-          {{ projectTitle }}<span>.</span>
+        <h1 :class="{ 'has-mobile-title': mobileProjectTitle }">
+  <span class="desktop-title">
+    {{ projectTitle }}<span>.</span>
+  </span>
+
+          <span
+            v-if="mobileProjectTitle"
+            class="mobile-title"
+          >
+    {{ mobileProjectTitle }}<span>.</span>
+  </span>
         </h1>
+
       </div>
     </section>
 
@@ -256,7 +270,18 @@ h1 {
   font-weight: var(--weight-bold);
 }
 
-h1 span,
+.desktop-title {
+  display: inline;
+  color: var(--black);
+}
+
+.mobile-title {
+  display: none;
+  color: var(--black);
+  white-space: pre-line;
+}
+
+h1 span span,
 h2 span {
   color: var(--blue);
 }
@@ -267,281 +292,253 @@ h2 span {
 
 .book-section {
   display: grid;
-  grid-template-columns: minmax(280px, .38fr) minmax(0, 1fr);
-  gap: clamp(34px, 5vw, 64px);
-  padding: clamp(34px, 5vw, 54px) 0;
+  grid-template-columns: minmax(280px,.38fr) minmax(0,1fr);
+  gap: clamp(34px,5vw,64px);
+  padding: clamp(34px,5vw,54px) 0;
   border-bottom: 1px solid var(--grey);
   scroll-margin-top: 120px;
 }
 
 .book-info {
-  padding-right: clamp(28px, 4vw, 50px);
+  padding-right: clamp(28px,4vw,50px);
   border-right: 4px solid var(--black);
 }
 
 .book-number {
-  display: block;
-  margin-bottom: 12px;
-  font-size: 18px;
-  font-weight: var(--weight-bold);
+  display:block;
+  margin-bottom:12px;
+  font-size:18px;
+  font-weight:var(--weight-bold);
 }
 
 h2 {
-  margin-bottom: 28px;
-  font-size: clamp(34px, 3vw, 52px);
-  line-height: .92;
-  letter-spacing: -.07em;
-  font-weight: var(--weight-bold);
+  margin-bottom:28px;
+  font-size:clamp(34px,3vw,52px);
+  line-height:.92;
+  letter-spacing:-.07em;
+  font-weight:var(--weight-bold);
 }
 
 .book-text {
-  display: grid;
-  gap: 18px;
-  margin-bottom: 30px;
+  display:grid;
+  gap:18px;
+  margin-bottom:30px;
 }
 
 .book-text p {
-  max-width: 340px;
-  font-size: 15px;
-  line-height: 1.45;
+  max-width:340px;
+  font-size:15px;
+  line-height:1.45;
 }
 
 .more-link {
-  position: relative;
-  display: inline-block;
-  color: var(--black);
-  font-size: 14px;
-  font-weight: var(--weight-medium);
-  text-decoration: none;
+  position:relative;
+  display:inline-block;
+  color:var(--black);
+  text-decoration:none;
+  font-size:14px;
+  font-weight:var(--weight-medium);
 }
 
-.more-link::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -5px;
-  width: 100%;
-  height: 1px;
-  background: var(--black);
+.more-link::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-5px;
+  width:100%;
+  height:1px;
+  background:var(--black);
 }
 
-.book-gallery {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
+.book-gallery{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
 }
 
-.image-card {
-  min-height: 220px;
-  background: #f1f1f1;
-  overflow: hidden;
-  cursor: pointer;
+.image-card{
+  min-height:220px;
+  background:#f1f1f1;
+  overflow:hidden;
+  cursor:pointer;
 }
 
-.image-card img {
-  width: 100%;
-  height: 100%;
-  display: block;
-  object-fit: contain;
+.image-card img{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:contain;
 }
 
-.fullscreen-viewer {
-  position: fixed;
-  inset: 0;
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #fff;
-  overflow: auto;
-  cursor: default;
+.fullscreen-viewer{
+  position:fixed;
+  inset:0;
+  z-index:1000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#fff;
 }
 
-.fullscreen-image {
-  display: block;
-  max-width: 100vw;
-  max-height: 100vh;
-  width: auto;
-  height: auto;
-  object-fit: contain;
-  transition: transform .35s ease;
-  transform-origin: center center;
-  cursor: zoom-in;
+.fullscreen-image{
+  max-width:100vw;
+  max-height:100vh;
+  object-fit:contain;
+  transition:transform .35s ease;
+  cursor:zoom-in;
 }
 
-.fullscreen-image.zoomed {
-  max-width: none;
-  max-height: none;
-  width: 180vw;
-  height: auto;
-  cursor: zoom-out;
+.fullscreen-image.zoomed{
+  max-width:none;
+  max-height:none;
+  width:180vw;
+  cursor:zoom-out;
 }
 
-.close-button {
-  position: absolute;
-  top: 25px;
-  right: 40px;
-  border: none;
-  background: none;
-  color: var(--black);
-  font-size: 60px;
-  font-weight: 700;
-  cursor: pointer;
-  z-index: 1001;
+.close-button{
+  position:absolute;
+  top:25px;
+  right:40px;
+  border:none;
+  background:none;
+  font-size:60px;
+  cursor:pointer;
 }
 
-.arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  border: none;
-  background: none;
-  color: var(--blue);
-  font-size: 90px;
-  font-weight: 700;
-  cursor: pointer;
-  z-index: 1001;
+.arrow{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  border:none;
+  background:none;
+  color:var(--blue);
+  font-size:90px;
+  cursor:pointer;
 }
 
-.left-arrow {
-  left: 40px;
+.left-arrow{
+  left:40px;
 }
 
-.right-arrow {
-  right: 40px;
+.right-arrow{
+  right:40px;
 }
 
-.arrow:hover,
-.close-button:hover {
-  opacity: .7;
+.page-copyright{
+  display:flex;
+  justify-content:flex-end;
+  margin-top:30px;
+  color:#777;
+  font-size:14px;
 }
 
-.page-copyright {
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 30px;
-  color: #777;
-  font-size: 14px;
-  font-weight: var(--weight-medium);
-}
+@media(min-width:1200px) and (max-width:1500px){
 
-@media (min-width:1200px) and (max-width:1500px) {
-  .hero {
-    padding: 52px 0 48px;
+  .hero{
+    padding:52px 0 48px;
   }
 
-  .back-button {
-    font-size: 90px;
+  h1{
+    font-size:96px;
   }
 
-  h1 {
-    font-size: 96px;
+  .book-section{
+    grid-template-columns:300px 1fr;
+    gap:36px;
   }
 
-  .book-section {
-    grid-template-columns: 300px 1fr;
-    gap: 36px;
-    padding: 34px 0;
+  h2{
+    font-size:38px;
   }
 
-  .book-info {
-    padding-right: 34px;
-  }
-
-  h2 {
-    font-size: 38px;
-  }
-
-  .book-text p {
-    font-size: 14px;
-    line-height: 1.42;
-  }
-
-  .image-card {
-    min-height: 180px;
+  .image-card{
+    min-height:180px;
   }
 }
 
-@media(max-width:900px) {
+@media(max-width:900px){
+
   .hero,
-  .book-section {
-    display: block;
+  .book-section{
+    display:block;
   }
 
-  .hero-title {
-    margin-top: 20px;
+  .hero-title{
+    margin-top:20px;
   }
 
-  .book-info {
-    margin-bottom: 34px;
-    padding-right: 0;
-    padding-bottom: 34px;
-    border-right: 0;
-    border-bottom: 3px solid var(--black);
+  .book-info{
+    margin-bottom:34px;
+    padding-right:0;
+    padding-bottom:0;
+
+    border-right:0;
+    border-bottom:0;
   }
 
-  .book-gallery {
-    display: flex;
-    overflow-x: auto;
-
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-
-    gap: 0;
-    padding: 0;
-    margin: 0;
-
-    scrollbar-width: none;
+  .book-gallery{
+    display:flex;
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    scroll-behavior:smooth;
+    gap:0;
+    scrollbar-width:none;
   }
 
-  .book-gallery::-webkit-scrollbar {
-    display: none;
+  .book-gallery::-webkit-scrollbar{
+    display:none;
   }
 
   .image-card {
     flex: 0 0 100%;
     min-width: 100%;
+    width: 100%;
 
-    min-height: 260px;
-    height: 62vw;
+    height: auto;
+    min-height: 0;
 
     margin: 0;
     background: transparent;
 
-    scroll-snap-align: center;
+    scroll-snap-align: start;
   }
 
   .image-card img {
+    display: block;
     width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-    object-position: center;
+    height: auto;
   }
 }
 
-@media(max-width:560px) {
-  .back-button {
-    font-size: 52px;
+@media(max-width:560px){
+
+  .back-button{
+    font-size:52px;
   }
 
-  .project-number {
-    font-size: 45px;
+  .project-number{
+    font-size:45px;
   }
 
-  h1 {
-    font-size: 66px;
+  h1{
+    font-size:66px;
+  }
+
+  h1.has-mobile-title .desktop-title{
+    display:none;
+  }
+
+  h1.has-mobile-title .mobile-title{
+    display:inline;
   }
 
   .image-card {
-    height: 68vw;
-    min-height: 230px;
+    height: auto;
+    min-height: 0;
   }
 
-  .page-copyright {
-    justify-content: flex-end;
-    font-size: 13px;
-    margin-top: 30px;
+  .page-copyright{
+    font-size:13px;
   }
 }
 </style>

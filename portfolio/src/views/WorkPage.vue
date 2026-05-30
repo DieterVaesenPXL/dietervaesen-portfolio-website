@@ -1,13 +1,13 @@
 <script setup>
-import BookDesignCover1 from '@/assets/work/book design/archetypo/Archetypo_Cover.jpg'
-import LogoDesignCover2 from '@/assets/work/logo design/strive/strive_logo_energybar.jpg'
-import PosterDesignCover3 from '@/assets/work/posterdesign/piamio sanatorium/Poster_Piamio Sanatorium.jpg'
-import InternshipCover4 from '@/assets/work/internship/business cards/business-cards_2.jpg'
-import PhotographyCover5 from '@/assets/other/Profielfoto.jpg'
-import WebDesignCover6 from '@/assets/work/webdesign/pokedex/pokedex-iphone_1.jpg'
-import HuisCosemansKnutsCover7 from '@/assets/work/huis cosemans-knuts/bachelor project/book/HCK_BA-Project_cover.jpg'
-import TypographyCover8 from '@/assets/work/typography/typo_1.jpg'
-import VirgaJesseCover9 from '@/assets/work/virga jesse/publicatie/virga-jesse_publicatie_spread_cover_open.jpg'
+import bookdesignCover from '@/assets/work/workpage/bookdesign.jpg'
+import logodesignCover from '@/assets/work/workpage/logodesign.jpg'
+import posterdesignCover from '@/assets/work/workpage/posterdesign.jpg'
+import internshipCover from '@/assets/work/workpage/internship.jpg'
+import photographyCover from '@/assets/work/workpage/photography.jpg'
+import webdesignCover from '@/assets/work/workpage/webdesign.jpg'
+import huiscosemansknutsCover from '@/assets/work/workpage/huiscosemans-knuts.jpg'
+import typographyCover from '@/assets/work/workpage/typography.jpg'
+import virgajesseCover from '@/assets/work/workpage/virgajesse.jpg'
 
 
 const projects = [
@@ -15,7 +15,7 @@ const projects = [
     id: '01',
     title: 'book design',
     subtitle: ['archetypo', 'microtypo', 'non-place', 'manifest'],
-    image: BookDesignCover1,
+    image: bookdesignCover,
     link: '/work/bookdesign',
 
     tagLinks: {
@@ -29,7 +29,7 @@ const projects = [
     id: '02',
     title: 'logo design',
     subtitle: ['lemur', 'line', 'strive'],
-    image: LogoDesignCover2,
+    image: logodesignCover,
     link: '/work/logodesign',
 
     tagLinks: {
@@ -42,7 +42,7 @@ const projects = [
     id: '03',
     title: 'poster design',
     subtitle: ['rebus', 'menucard', 'enzo mari', 'paimio sanatorium'],
-    image: PosterDesignCover3,
+    image: posterdesignCover,
     link: '/work/posterdesign',
 
     tagLinks: {
@@ -57,7 +57,7 @@ const projects = [
     id: '04',
     title: 'internship',
     subtitle: ['lookbook', 'business cards'],
-    image: InternshipCover4,
+    image: internshipCover  ,
     link: '/work/internship',
 
     tagLinks: {
@@ -69,7 +69,7 @@ const projects = [
     id: '05',
     title: 'photography',
     subtitle: ['athletics', 'airshow', 'motorsport'],
-    image: PhotographyCover5,
+    image: photographyCover,
     link: '/work/photography',
 
     tagLinks: {
@@ -80,9 +80,9 @@ const projects = [
   },
   {
     id: '06',
-    title: 'webdesign',
+    title: 'webdevelopment',
     subtitle: ['pokédex', 'immohabits', 'take away', 'dashboard'],
-    image: WebDesignCover6,
+    image: webdesignCover,
     link: '/work/webdesign',
 
     tagLinks: {
@@ -96,7 +96,7 @@ const projects = [
     id: '07',
     title: 'huis cosemans-knuts',
     subtitle: ['catalog', 'bachelor project', 'master project'],
-    image: HuisCosemansKnutsCover7,
+    image: huiscosemansknutsCover,
     link: '/work/huiscosemansknuts',
 
     tagLinks: {
@@ -109,7 +109,7 @@ const projects = [
     id: '08',
     title: 'typography',
     subtitle: ['typegenres, horror font'],
-    image: TypographyCover8,
+    image: typographyCover,
     link: '/work/typography',
 
     tagLinks: {
@@ -121,7 +121,7 @@ const projects = [
     id: '09',
     title: 'virga jesse',
     subtitle: ['publicatie', 'hommage', 'poster'],
-    image: VirgaJesseCover9,
+    image: virgajesseCover,
     link: '/work/virgajesse',
 
     tagLinks: {
@@ -327,8 +327,8 @@ h1 span,
   height: 180px;
 
   overflow: hidden;
-  background: #f1f1f1;
-  border-radius: 16px;
+  background: transparent;
+  border-radius: 0;
 
   display: flex;
   align-items: center;
@@ -439,7 +439,7 @@ h1 span,
   .project-image {
     width: 330px;
     height: 170px;
-    border-radius: 14px;
+    border-radius: 0;
   }
 
   .project-arrow {
@@ -448,7 +448,6 @@ h1 span,
 }
 
 /* Tablet / mobile */
-
 @media (max-width: 900px) {
   .work-hero {
     display: block;
@@ -513,13 +512,24 @@ h1 span,
 
   .project-image {
     width: 100%;
-    height: 240px;
+    height: 78vw;
+    min-height: 300px;
+    max-height: 520px;
     margin-top: 18px;
+    border-radius: 0;
+    background: transparent;
+    overflow: hidden;
+  }
+
+  .project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
   }
 }
 
 /* Small mobile */
-
 @media (max-width: 560px) {
   h1 {
     font-size: 78px;
